@@ -25,24 +25,24 @@ doc.useServiceAccountAuth(creds, function (err) {
         row_data['tag'] = res.data.topics
       }).catch(err => row_data['tag'] = []);
 
-      // axios
-      // .get(`https://api.github.com/repos/${mentor}/${repo}`, {headers: { 'Accept':  "application/vnd.github.mercy-preview+json"}})
-      // .then(res => {
-      //     row_data['tag'] =  res.data.topics;
-      //   })
-      // .catch(err => {
-      //   row_data['tag'] = [];
-      // })
+      axios
+      .get(`https://api.github.com/repos/${mentor}/${repo}`, {headers: { 'Accept':  "application/vnd.github.mercy-preview+json"}})
+      .then(res => {
+          row_data['tag'] =  res.data.topics;
+        })
+      .catch(err => {
+        row_data['tag'] = [];
+      })
        
 
     
-      // axios.get(`https://api.github.com/repos/${mentor}/${repo}`, {headers: { 'Accept':  "application/vnd.github.mercy-preview+json"}})
-      //       .then(res => {
-      //         row_data['intro_full'] = res.data.description;
-      //       })
-      //       .catch(err => {
-      //         row_data['intro_full'] = row['projectdescriptionshort']
-      //       })
+      axios.get(`https://api.github.com/repos/${mentor}/${repo}`, {headers: { 'Accept':  "application/vnd.github.mercy-preview+json"}})
+            .then(res => {
+              row_data['intro_full'] = res.data.description;
+            })
+            .catch(err => {
+              row_data['intro_full'] = row['projectdescriptionshort']
+            })
      
       
      
@@ -61,8 +61,8 @@ doc.useServiceAccountAuth(creds, function (err) {
     row_data = JSON.stringify(row_data);
     // console.log('each ', row_data);
     x.push(row_data);
-    fs.writeFile('stage1.js', x, (err) => console.log(err));
-      
+    // fs.writeFile('stage1.js', x, (err) => console.log(err));
+      console.log(x);
     }
   });
 });

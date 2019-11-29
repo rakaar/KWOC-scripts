@@ -9,11 +9,11 @@ print(len(x))
 print(json.dumps({"data": new_data}))
 for y in x:
     try:
-        y['tags'] = json.loads(requests.get(y['link'].replace("github.com", "api.github.com/repos") + "/topics", headers={"Accept": "application/vnd.github.mercy-preview+json", rakaar: " 5145411fb4bcb9b3001e839554fbf6ffed3191de"}).text)['names']
+        y['tags'] = json.loads(requests.get(y['link'].replace("github.com", "api.github.com/repos") + "/topics", headers={"Accept": "application/vnd.github.mercy-preview+json", "Authorization": "token 5145411fb4bcb9b3001e839554fbf6ffed3191de"}).text)['names']
     except:
         y['tags'] = []
     try:
-        y['intro_full'] = json.loads(requests.get(y['link'].replace("github.com", "api.github.com/repos")).text)['description']
+        y['intro_full'] = json.loads(requests.get(y['link'].replace("github.com", "api.github.com/repos",  headers={"Accept": "application/vnd.github.mercy-preview+json", "Authorization": "token 5145411fb4bcb9b3001e839554fbf6ffed3191de"}).text)['description']
     except:
         y['intro_full'] = ""
     print(y)

@@ -16,6 +16,7 @@ x.forEach(ele => {
         ...ele,
         "intro_full": res.data.description 
       })
+      if(x.indexOf(ele) === 163) console.log(x1);
     })
     .catch(err => {
       console.log(err);
@@ -23,7 +24,8 @@ x.forEach(ele => {
         ...ele,
         "intro_full": ele.projectdescriptionshort
       })
+      if(x.indexOf(ele) === 163) console.log(x1);
     })
 })
 
-fs.writeFile('stage3.js', x1, err => console.log(err));
+// fs.writeFile('stage3.js', x1, err => console.log(err));

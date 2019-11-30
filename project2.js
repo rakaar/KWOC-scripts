@@ -7,7 +7,7 @@ x.forEach(ele => {
   let repo = ele.link.split('/')[4];
   // console.log('link is ',repo)
   axios
-    .get(`https://api.github.com/repos/${mentor}/${repo}`, {headers: { 'Accept':  "application/vnd.github.mercy-preview+json"}})
+    .get(`https://api.github.com/repos/${mentor}/${repo}`, headers={"Accept": "application/vnd.github.mercy-preview+json", "Authorization": "token 5145411fb4bcb9b3001e839554fbf6ffed3191de"})
     .then(res => {
       // console.log('dam ', res.data.topics);
       x1.push({
